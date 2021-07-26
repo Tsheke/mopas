@@ -1,0 +1,150 @@
+[submodule "mod/attendance"]
+	path = mod/attendance
+	url = https://github.com/danmarsden/moodle-mod_attendance
+	branch = MOODLE_38_STABLE
+[submodule "blocks/attendance"]
+	path = blocks/attendance
+	url = https://github.com/danmarsden/moodle-block_attendance
+    branch = main
+[submodule "mod/bigbluebuttonbn"]
+	path = mod/bigbluebuttonbn
+	url = https://github.com/blindsidenetworks/moodle-mod_bigbluebuttonbn.git
+	tag = v2.4-b2
+[submodule "mod/via"]
+	path = mod/via
+	url = https://github.com/SVIeSolutions/moodle-mod_via.git
+	comment = "continuer ici"
+[submodule "mod/booking"]
+	path = mod/booking
+	url = https://github.com/Wunderbyte-GmbH/moodle-mod_booking
+[submodule "mod/checklist"]
+	path = mod/checklist
+	url = https://github.com/davosmith/moodle-checklist
+	branch = master
+[submodule "mod/choicegroup"]
+	path = mod/choicegroup
+	url = https://github.com/ndunand/moodle-mod_choicegroup
+	tag = 2020121900
+[submodule "mod/customcert"]
+	path = mod/customcert
+	url = https://github.com/mdjnelson/moodle-mod_customcert
+	branch = MOODLE_39_STABLE
+[submodule "mod/questionnaire"]
+	path = mod/questionnaire
+	url = https://github.com/PoetOS/moodle-mod_questionnaire
+	branch = MOODLE_39_STABLE
+[submodule "mod/hvp"]
+	path = mod/hvp
+	url = https://github.com/h5p/h5p-moodle-plugin
+	tag = 1.21
+[submodule "admin/tool/migratehvp2h5p"]
+    path = admin/tool/migratehvp2h5p
+	url = https://github.com/moodlehq/moodle-tool_migratehvp2h5p
+	tag = v0.1.4
+[submodule "mod/game"]
+	path = mod/game
+	url = https://github.com/bdaloukas/moodle-mod_game
+	branch = MOODLE_20_STABLE
+[submodule "mod/quizgame"]
+	path = mod/quizgame
+	url = https://github.com/xow/moodle-mod_quizgame
+	tag = v3.7-r1
+[submodule "blocks/checklist"]
+	path = blocks/checklist
+	url = https://github.com/davosmith/moodle-block_checklist
+[submodule "blocks/configurable_reports"]
+	path = blocks/configurable_reports
+	url = https://github.com/jleyva/moodle-block_configurablereports
+	tag = 3.9.0
+[submodule "report/lpmonitoring"]
+	path = report/lpmonitoring
+	url = https://github.com/StudiUM/moodle-report_lpmonitoring
+[submodule "blocks/completion_progress"]
+	path = blocks/completion_progress
+	url = https://github.com/jonof/moodle-block_completion_progress
+[submodule "blocks/learning_plan"]
+	path = blocks/learning_plan
+	url = https://github.com/3ilogiclms/moodle-block_learning_plan
+[submodule "blocks/course_modulenavigation"]
+	path = blocks/course_modulenavigation
+	url = https://github.com/DigiDago/moodle-block_course_modulenavigation
+[submodule "blocks/filtered_course_list"]
+	path = blocks/filtered_course_list
+	url = https://github.com/CLAMP-IT/moodle-blocks_filtered_course_list
+[submodule "question/type/multichoiceset"]
+	path = question/type/multichoiceset
+	url = https://github.com/ecampbell/moodle-qtype_multichoiceset
+[submodule "question/type/pmatch"]
+	path = question/type/pmatch
+	url = https://github.com/moodleou/moodle-qtype_pmatch
+[submodule "question/type/oumultiresponse"]
+	path = question/type/oumultiresponse
+	url = https://github.com/moodleou/moodle-qtype_oumultiresponse
+[submodule "question/type/combined"]
+	path = question/type/combined
+	url = https://github.com/moodleou/moodle-qtype_combined
+[submodule "question/type/pmatchreverse"]
+	path = question/type/pmatchreverse
+	url = https://github.com/timhunt/moodle-qtype_pmatchreverse
+[submodule "question/behaviour/adaptiveallnothing"]
+	path = question/behaviour/adaptiveallnothing
+	url = https://github.com/dthies/moodle-qbehaviour_adaptiveallnothing
+[submodule "question/behaviour/regexpadaptivewithhelp"]
+	path = question/behaviour/regexpadaptivewithhelp
+	url = https://github.com/rezeau/moodle-qbehaviour_regexpadaptivewithhelp
+[submodule "question/behaviour/regexpadaptivewithhelpnopenalty"]
+	path = question/behaviour/regexpadaptivewithhelpnopenalty
+	url = https://github.com/rezeau/moodle-qbehaviour_regexpadaptivewithhelpnopenalty
+	branch = MOODLE_38_STABLE
+[submodule "enrol/attributes"]
+	path = enrol/attributes
+	url = https://github.com/ndunand/moodle-enrol_attributes
+[submodule "enrol/autoenrol"]
+	path = enrol/autoenrol
+	url = https://github.com/bobopinna/moodle-enrol_autoenrol
+[submodule "availability/coursecompleted"]
+	path = availability/coursecompleted
+	url = https://github.com/ewallah/moodle-availability_coursecompleted
+[submodule "enrol/coursecompleted"]
+	path = enrol/coursecompleted
+	url = https://github.com/ewallah/moodle-enrol_coursecompleted
+[submodule "report/customsql"]
+	path = report/customsql
+	url = https://github.com/moodleou/moodle-report_customsql
+[submodule "report/overviewstats"]
+	path = report/overviewstats
+	url = https://github.com/mudrd8mz/moodle-report_overviewstats
+	tag = release-v1.5.1
+[submodule "availability/mobileapp"]
+	path = availability/mobileapp
+	url = https://github.com/moodlehq/moodle-availability_mobileapp
+[submodule "availability/condition/ipaddress"]
+	path = availability/condition/ipaddress
+	url = https://github.com/MFreakNL/moodle-availability_ipaddress
+[submodule "availability/condition/mobileapp"]
+	path = availability/condition/mobileapp
+	url = https://github.com/moodlehq/moodle-availability_mobileapp
+[submodule "availability/condition/coursecompleted"]
+	path = availability/condition/coursecompleted
+	url = https://github.com/ewallah/moodle-availability_coursecompleted
+[submodule "theme/adaptable"]
+	path = theme/adaptable
+	url = https://gitlab.com/jezhops/moodle-theme_adaptable.git
+	branch = MOODLE_39
+[submodule "theme/moove"]
+	path = theme/moove
+	url = https://github.com/willianmano/moodle-theme_moove.git
+	branch = MOODLE_39_STABLE
+[submodule "theme/fordson"]
+	path = theme/fordson
+	url = https://github.com/dbnschools/moodle-theme_fordson.git
+	tag = cafb517
+[submodule "availability/condition/language"]
+	path = availability/condition/language
+	url = https://github.com/ewallah/moodle-availability_language.git
+[submodule "local/recompletion"]
+    path = local/recompletion
+    url = https://github.com/danmarsden/moodle-local_recompletion.git
+[submodule "blocks/resetcompletion"]
+    path = blocks/resetcompletion
+    url = https://github.com/ajhpark/reset-completion.git
