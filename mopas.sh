@@ -4,23 +4,36 @@ MOOVERS="$1"
 MOODIR="$2"
 MOOGIT='https://github.com/moodle/moodle.git'
 BRANCHE='master'
-GITMODFILE='gitmodules'
+GITMODFILE="$3"
 H5PDIR='mod/hvp'
 CURDIR=$(pwd)
 
-echo "running script from directory: $CURDIR"
+
+if ( [ -z "$GITMODFILE" ] )
+ then
+  GITMODFILE='gitmodules'
+fi
+
+echo "using git sub"
 
 if ( [ -z "$MOOVERS" ] || [ -z "$MOODIR" ] || [ "$MOOVERS" = "-h" ] )
  then
   echo "usage:"
-  echo "./moopas.sh <MOOVERS> <MOODIR>"
+  echo "./moopas.sh <MOOVERS> <MOODIR> [GITMODULES]"
   echo "MOOVERS is a moodle version. i.e. 39 or 'master'"
   echo "MOODIR is the moodle packaging directory"
-  echo "Ex: Run"
-  echo "./moopas 39 moodle"
+  echo "GITMODULES is a file of 'gitmodules' format with of optionnals mopas fields"
+  echo "Ex 1: Run"
+  echo "./moopas 39 moodle gitmodMood39"
   echo "to package moodle 39 stable in 'moodle' directory"
+  echo "Ex 2: Run"
+  echo "./moopas 39 moodle"
   exit 1;
 fi
+
+
+echo "Running script from directory: $CURDIR"
+echo "Using gitmodulefile: $GITMODFILE"
 
 
 if (echo "$MOOVERS"|grep -Ei "^[0-9]+$")
@@ -34,9 +47,9 @@ fi
 echo "Version: $MOOVERS"
 echo "packaging directory: $MOODIR"
 
-# make sure directory doesn't exist
+# make sure directory doesn't exist and not empty
 
-if( [ -e "$MOODIR" ] )
+if( [ -f "$MOODIR" ] || [ -d "$MOODIR" ] && [ -n "$(ls -A "$MOODIR")" ] )
 then
  echo "a file/directory "$MOODIR" exists already"
  echo "rename it or change directory"
