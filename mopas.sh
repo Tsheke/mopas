@@ -20,14 +20,14 @@ if ( [ -z "$MOOVERS" ] || [ -z "$MOODIR" ] || [ "$MOOVERS" = "-h" ] )
  then
   echo "usage:"
   echo "./moopas.sh <MOOVERS> <MOODIR> [GITMODULES]"
-  echo "MOOVERS is a moodle version. i.e. 39 or 'master'"
+  echo "MOOVERS is a moodle version. i.e. 401 or 'master'"
   echo "MOODIR is the moodle packaging directory"
-  echo "GITMODULES is a file of 'gitmodules' format with of optionnals mopas fields"
+  echo "GITMODULES is a file of 'gitmodules' format with optionnals mopas fields"
   echo "Ex 1: Run"
-  echo "./moopas 39 moodle gitmodMood39"
-  echo "to package moodle 39 stable in 'moodle' directory"
+  echo "./moopas 401 moodle gitmodMood41"
+  echo "to package moodle 401 stable in 'moodle' directory"
   echo "Ex 2: Run"
-  echo "./moopas 39 moodle"
+  echo "./moopas 401 moodle"
   exit 1;
 fi
 
@@ -38,7 +38,7 @@ echo "Using gitmodulefile: $GITMODFILE"
 
 if (echo "$MOOVERS"|grep -Ei "^[0-9]+$")
 then
-  BRANCHE='MOODLE_'"$MOOVERS"'_STABLE'
+   BRANCHE='MOODLE_'"$MOOVERS"'_STABLE'
 elif ( [ "$MOOVERS" != "master" ] )
 then
   echo "Unkown version: $MOOVERS"
@@ -51,7 +51,9 @@ echo "packaging directory: $MOODIR"
 
 if( [ -f "$MOODIR" ] || [ -d "$MOODIR" ] && [ -n "$(ls -A "$MOODIR")" ] )
 then
- echo "a file/directory "$MOODIR" exists already"
+ echo "a file/directory "$MOODIR" exists already or/and directory not empty"
+ echo "To clone in an existing directory, remove every things:"
+ echo "rm -rf $MOODIR/*  $MOODIR/.* "
  echo "rename it or change directory"
  exit 1
 fi
@@ -74,7 +76,13 @@ git config -f .gitmodules --get-regexp '^submodule\..*\.path$' |
     do
         url_key=$(echo $path_key | sed 's/\.path/.url/')
         url=$(git config -f .gitmodules --get "$url_key")
-        git submodule add $url $path
+        skip_key=$(echo $path_key | sed 's/\.path/.skip/')
+        skip=$(git config -f .gitmodules --get "$skip_key" || echo)
+        if ( [ -z "$skip" ] ) # no skip key. If skip key do not install
+          then
+          git submodule add $url $path
+        fi;
+        
     done
     
 # To update plugins: 
@@ -94,9 +102,11 @@ git config -f .gitmodules --get-regexp '^submodule\..*\.path$' |
         #git submodule add $url $path
         #tag
         tag_key=$(echo $path_key | sed 's/\.path/.tag/')
+        skip_key=$(echo $path_key | sed 's/\.path/.skip/')
         branch_key=$(echo $path_key | sed 's/\.path/.branch/')
         tag=$(git config -f .gitmodules --get "$tag_key" || git config -f .gitmodules --get "$branch_key" ||echo)
-        if( [ ! -z "$tag" ] ) # plugin has tag 
+        skip=$(git config -f .gitmodules --get "$skip_key" || echo)
+        if( [ ! -z "$tag" ] && [ -z "$skip" ] ) # plugin has tag and no skip field
           then
            cd $path
            git fetch --all --tags
